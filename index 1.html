@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+    background-image: url('nra.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.login {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+form {
+    text-align: left;
+}
+
+label {
+    color: black;
+    font-weight: bold;
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+    padding-right: 5%;
+    box-sizing: border-box;
+}
+
+input[type="text"],
+select {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    text-align: center;
+    display: block;
+    margin: 20px auto;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #d32f2f;
+}
+
+</style>
+</head>
+<body>
+<div class='login'>
+    <h1>Autism Spectrum Disorder Prediction</h1>
+    <form action="{{ url_for('predict')}}" method="post">
+        <label for="Age">Age:</label>
+        <input type="text" name="Age" id="Age" placeholder="" required="required" /><br>
+
+        <label for="Gender">Gender:</label>
+        <select id="Gender" name="Gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br>
+
+        <label for="Born with Jaundice">Born with Jaundice:</label>
+        <select id="Born with Jaundice" name="Born with Jaundice">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+
+        <label for="Family members autism">Family members autism:</label>
+        <select id="Family members autism" name="Family members autism">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+
+        <label for="Started talking before age of 2">Started talking before age of 2</label>
+		<select id = "Started talking before age of 2" name="Started talking before age of 2">
+			<option value="Yes">Yes</option>
+			<option value="No">No</option>
+		</select><br>
+
+		<label for="Who is taking the test">Who is taking the test</label>
+		<select id="WHo is taking the test " name="Who is taking the test ">
+			<option value="Self">Self</option>
+			<option value="Parent">Parent</option>
+			<option value="Health care professional">Health care professional</option>
+			<option value="Relative">Relative</option>
+			<option value="Others">Others</option>
+	</select><br>
+
+	<label for=" Whether any immediate family member has a PDD">Whether any immediate family member has a PDD</label>
+	<select id="Whether any immediate family member has a PDD" name="Whether any immediate family member has a PDD "  >
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="I often notice small sounds when others do not">I often notice small sounds when others do not</label>
+	<select id="I often notice small sounds when others do not " name="I often notice small sounds when others do not">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="I usually concentrate more on the whole picture, rather than the small details">I usually concentrate more on the whole picture, rather than the small details</label>
+	<select id="I usually concentrate more on the whole picture, rather than the small details " name="I usually concentrate more on the whole picture, rather than the small details ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+	
+	<label for="I find it easy to do more than one thing at once">I find it easy to do more than one thing at once</label>
+	<select id="I find it easy to do more than one thing at once " name="I find it easy to do more than one thing at once">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="If there is an interruption I can switch back to what I was doing quickly">If there is an interruption I can switch back to what I was doing quickly</label>
+	<select id="If there is an interruption I can switch back to what I was doing quickly " name="If there is an interruption I can switch back to what I was doing quickly ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="I find it easy to read between the lines when someone is talking to me">I find it easy to read between the lines when someone is talking to me</label>
+	<select id="I find it easy to read between the lines when someone is talking to me " name="I find it easy to read between the lines when someone is talking to me ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+	
+	<label for="I know how to tell someone listening to me is getting bored">I know how to tell someone listening to me is getting bored</label>
+	<select id="I know how to tell someone listening to me is getting bored" name="I know how to tell someone listening to me is getting bored  ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="When I'm reading a story I find it difficult to work out the characters'intentions ">When I'm reading a story I find it difficult to work out the characters' intentions</label>
+	<select id="When I'm reading a story I find it difficult to work out the characters' intentions " name="When I'm reading a story I find it difficult to work out the characters' intentions ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="I like to collect information about categories at things">I like to collect information about categories at things</label>
+	<select id="I like to collect information about categories at things " name="I like to collect information about categories at things ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+	<label for="I find it easy to work out what someone is thinking">I find it easy to work out what someone is thinking</label>
+	<select id="I find it easy to work out what someone is thinking " name="I find it easy to work out what someone is thinking ">
+	<option value="Yes">Yes</option>
+	<option value="No">No</option>
+	</select><br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+    <br>
+    <b><font style="color:black; font-family:verdana;" size="7">{{prediction_text}}</font></b>
+</div>
+</body>
+</html>

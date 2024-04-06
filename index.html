@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Route Optimization</title>
+</head>
+<body>
+    <h1>Route Optimization</h1>
+    
+    <div>
+        <label for="origin">Origin:</label>
+        <input type="text" id="origin" placeholder="Enter origin address">
+    </div>
+
+    <div>
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" placeholder="Enter destination address">
+    </div>
+
+    <button onclick="optimizeRoute()">Optimize Route</button>
+
+    <div>
+        <h2>Optimized Route:</h2>
+        <ul id="optimizedRoute"></ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function optimizeRoute() {
+            const origin = $('#origin').val();
+            const destination = $('#destination').val();
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:5000/optimize-route',
+                contentType: 'application/json',
+                data: JSON.stringify({ origin, destination }),
+                success: function(response) {
+                    const optimizedRoute = response.optimized_route;
+                    displayOptimizedRoute(optimizedRoute);
+                }
+            });
+        }
+
+        function displayOptimizedRoute(route) {
+            const optimizedRouteList = $('#optimizedRoute');
+            optimizedRouteList.empty();
+
+            route.forEach(item => {
+                optimizedRouteList.append(`<li>${item.instruction.text}</li>`);
+            });
+        }
+    </script>
+</body>
+</html>

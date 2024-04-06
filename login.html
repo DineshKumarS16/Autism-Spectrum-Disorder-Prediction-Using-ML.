@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, sans-serif;
+    background-image: 'nra.jpg';
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	text-align: center;
+}
+
+.login h1 {
+    color: #333;
+}
+
+form {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #d32f2f;
+}
+
+a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    margin-top: 20px;
+}
+
+a:hover {
+    color: #f44336;
+}
+
+</style>
+</head>
+<body>
+<div class='login'>
+    <h1>LOGIN</h1>
+    <form action="{{url_for('login1')}}" method='post'>
+        <input type='text' name='user_name' placeholder='Username' required='required'/><br><br>
+        <input type='password' id='myInput' name='password' placeholder='Password' required='required'/><br><br>
+        <button type='submit'>Login</button><br><br>
+    </form>
+    <p>{{text}}</p>
+</div>
+</body>
+</html>
